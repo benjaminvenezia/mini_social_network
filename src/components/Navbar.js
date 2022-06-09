@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { links, social } from "../utils/data";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // import logo from "./logo.svg";
 
@@ -129,7 +130,7 @@ const Navbar = () => {
               const { id, url, text } = link;
               return (
                 <li key={id}>
-                  <a href={url}>{text}</a>
+                  <Link to={url}>{text}</Link>
                 </li>
               );
             })}

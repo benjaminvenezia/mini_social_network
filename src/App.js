@@ -1,19 +1,22 @@
 import Button from "@mui/material/Button";
-import Homepage from "./pages/Homepage";
 import GlobalStyle from "./utils/globalStyles";
 import { Footer, Navbar } from "./components";
+import { Homepage, LoginPage, RegisterPage } from "./pages";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    // <Button size="large" variant="contained" color="secondary">
-    //   Hello World
-    // </Button>
-    <>
+    <Router>
       <GlobalStyle />
       <Navbar />
-      <Homepage />
+
+      <Routes>
+        <Route index path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 
