@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import moment from "moment";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   color: white;
@@ -12,6 +14,10 @@ const Wrapper = styled.div`
   }
 `;
 
+const MyProfil = styled.div``;
+
+const UserActions = styled.div``;
+
 const ProfilLoggedUser = ({
   id,
   username,
@@ -23,10 +29,28 @@ const ProfilLoggedUser = ({
   updated_at,
   bio,
 }) => {
+  const deleteAccount = (id) => {
+    const token = localStorage.getItem("token");
+    axios
+      .delete(
+        `https://strapi-crea.jcloud-ver-jpc.ik-server.com/users/${id.toString()}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(function (response) {})
+      .catch(function (error) {
+        console.log(error.data);
+      });
+  };
+
   return (
     <Wrapper>
       <h1>{username}</h1>
-      <div>
+      <MyProfil>
         <p>
           <span>Email :</span> {email}
         </p>
@@ -42,7 +66,10 @@ const ProfilLoggedUser = ({
         <p>
           <span>Inscrit le :</span> {moment(created_at, "YYYYMMDD").fromNow()}
         </p>
-      </div>
+      </MyProfil>
+      <UserActions>
+        <button onClick={() => deleteAccount(id)}>Delete My account</button>
+      </UserActions>
     </Wrapper>
   );
 };

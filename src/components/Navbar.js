@@ -3,6 +3,7 @@ import { links, social } from "../utils/data";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // import logo from "./logo.svg";
 
@@ -96,6 +97,15 @@ const Wrapper = styled.nav`
   }
 `;
 
+const LogoutButton = styled.button`
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+`;
+
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
@@ -103,6 +113,9 @@ const Navbar = () => {
   const toggleLinks = () => {
     setShowLinks(!showLinks);
   };
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
     if (showLinks) {
@@ -111,6 +124,12 @@ const Navbar = () => {
       linksContainerRef.current.style.height = "0px";
     }
   }, [showLinks]);
+
+  const logout = () => {
+    localStorage.setItem("token", "");
+    navigate("/landing");
+  };
+
   return (
     <Wrapper>
       <div className="nav-center">
@@ -130,6 +149,9 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <LogoutButton onClick={logout} type="button">
+              Log out
+            </LogoutButton>
           </ul>
         </div>
         <ul className="social-icons">

@@ -24,7 +24,6 @@ const FormRegister = () => {
   return (
     <FormWrapper
       onSubmit={handleSubmit((data) => {
-        console.log("the data:", data);
         axios
           .post(
             "https://strapi-crea.jcloud-ver-jpc.ik-server.com/auth/local/register",
@@ -38,8 +37,6 @@ const FormRegister = () => {
           .catch(function (error) {
             console.log(error.data);
           });
-
-        console.log(data);
       })}
     >
       <input

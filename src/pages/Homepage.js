@@ -20,7 +20,7 @@ const Homepage = () => {
   useEffect(() => {
     const fetchData = () => {
       const token = localStorage.getItem("token");
-      console.log(token);
+
       axios
         .get("https://strapi-crea.jcloud-ver-jpc.ik-server.com/posts", {
           headers: {

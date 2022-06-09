@@ -7,6 +7,7 @@ import {
   RegisterPage,
   PostPage,
   ProfilPage,
+  LandingPage,
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function App() {
 
       <Routes>
         <Route index path="/" element={<Homepage />} />
+        <Route index path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register" element={<RegisterPage />} />
