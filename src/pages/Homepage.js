@@ -47,6 +47,27 @@ const Homepage = () => {
   const handlePage = (index) => {
     setPage(index);
   };
+
+  const nextPage = () => {
+    setPage((oldPage) => {
+      let nextPage = oldPage + 1;
+      if (nextPage > articles.length - 1) {
+        nextPage = 0;
+      }
+      return nextPage;
+    });
+  };
+
+  const prevPage = () => {
+    setPage((oldPage) => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        prevPage = articles.length - 1;
+      }
+      return prevPage;
+    });
+  };
+
   return (
     <Wrapper>
       <h1>Homepage</h1>
@@ -57,6 +78,9 @@ const Homepage = () => {
 
       {!loading && (
         <div className="btn-container">
+          <button onClick={prevPage} className="prev-btn">
+            prev
+          </button>
           {articles.map((item, index) => {
             return (
               <button
@@ -68,6 +92,9 @@ const Homepage = () => {
               </button>
             );
           })}
+          <button onClick={nextPage} className="next-btn">
+            next
+          </button>
         </div>
       )}
     </Wrapper>

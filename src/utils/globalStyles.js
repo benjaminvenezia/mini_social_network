@@ -50,6 +50,25 @@ input:focus, textarea:focus, select:focus{
   color: white;
   border: none;
 }
+
+.next-btn, .prev-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 1rem;
+  cursor: pointer;
+
+}
+
+.next-btn {
+  margin-left: 5px;
+}
+
+.prev-btn {
+  margin-right: 5px;
+}
+
 .active-btn {
   background-color: aliceblue;
   color: black;
