@@ -13,6 +13,7 @@ const Article = ({ id, title, content, user, created_at, udated_at }) => {
       <h2>{title}</h2>
       <p>{content}</p>
       <span>{created_at}</span>
+      <span>{user.name}</span>
     </Wrapper>
   );
 };
