@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useFetch from "../hooks/useFetch";
+import RegisterForm from "./RegisterForm";
 
-const Wrapper = styled.main`
-  background-color: red;
-`;
+const Wrapper = styled.main``;
 
 const Homepage = () => {
-  const { response, loading, error } = useFetch(
-    "https://jsonplaceholder.typicode.com/todos/1"
-  );
+  const { response, loading, error } = useFetch();
 
   return (
     <Wrapper>
+      <RegisterForm />
       {console.log(response)}
       {loading && <p>Loading...</p>}
       {error && <p>Something went wrong...</p>}

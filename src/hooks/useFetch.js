@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useGlobalContext } from "../contexts/context";
+import { SET_LOADING } from "../contexts/actions";
+import { dispatch } from "react";
 
 const useFetch = (url, options) => {
+  const { isLoading } = useGlobalContext();
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -31,6 +35,6 @@ const useFetch = (url, options) => {
       abortController.abort();
     };
   }, []);
-  return { response, error, loading };
+  return { response, error, isLoading };
 };
 export default useFetch;
