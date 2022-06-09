@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Input from "@mui/material/Input";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const FormWrapper = styled.form`
+  margin: 0 auto;
+`;
 
 const FormLogin = () => {
   const navigate = useNavigate();
@@ -17,7 +21,7 @@ const FormLogin = () => {
   });
 
   return (
-    <form
+    <FormWrapper
       onSubmit={handleSubmit((data) => {
         axios
           .post(
@@ -35,9 +39,7 @@ const FormLogin = () => {
           });
       })}
     >
-      <Input
-        label="Outlined"
-        variant="outlined"
+      <input
         {...register("identifier", { required: "Ce champs est requis." })}
         type="email"
         placeholder="joe@joe.com"
@@ -54,8 +56,10 @@ const FormLogin = () => {
       />
       <p>{errors.password?.message}</p>
 
-      <button type="submit">Login</button>
-    </form>
+      <button className="btn-form" type="submit">
+        Login
+      </button>
+    </FormWrapper>
   );
 };
 export default FormLogin;

@@ -1,7 +1,15 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const FormWrapper = styled.form`
+  margin: 0 auto;
+`;
 
 const FormPost = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +23,7 @@ const FormPost = () => {
   });
 
   return (
-    <form
+    <FormWrapper
       onSubmit={handleSubmit((data) => {
         const token = localStorage.getItem("token");
 
@@ -32,6 +40,7 @@ const FormPost = () => {
           )
           .then(function (response) {
             console.log(response.data);
+            navigate("/");
           })
           .catch(function (error) {
             console.log(error.data);
@@ -64,8 +73,10 @@ const FormPost = () => {
       />
       <p>{errors.password?.message}</p>
 
-      <button type="submit">Poster</button>
-    </form>
+      <button className="btn-form" type="submit">
+        Poster
+      </button>
+    </FormWrapper>
   );
 };
 export default FormPost;

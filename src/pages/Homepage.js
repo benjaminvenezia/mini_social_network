@@ -4,13 +4,18 @@ import styled from "styled-components";
 import axios from "axios";
 
 import { Article } from "../components";
+import paginate from "../utils/paginate";
 
 const Wrapper = styled.main`
   margin: 0 auto;
+  text-align: center;
 `;
 
 const Homepage = () => {
+  const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
+  const [page, setPage] = useState(2);
+  const [paginatedArticles, setPaginatedArticles] = useState([]);
 
   useEffect(() => {
     const fetchData = () => {
@@ -24,7 +29,8 @@ const Homepage = () => {
           },
         })
         .then(function (response) {
-          setArticles(response.data);
+          setArticles(paginate(response.data));
+          setLoading(false);
         })
         .catch(function (error) {
           console.log(error.data);
@@ -33,15 +39,37 @@ const Homepage = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+    setPaginatedArticles(articles[page]);
+  }, [loading, page]);
+
+  const handlePage = (index) => {
+    setPage(index);
+  };
   return (
     <Wrapper>
       <h1>Homepage</h1>
-
-      {articles.map((article) => {
-        return <Article {...article} />;
+      {loading && <h1>Chargement...</h1>}
+      {paginatedArticles.map((article) => {
+        return <Article key={article.id} {...article} />;
       })}
 
-      {/* {response && <p>{response.title}</p>} */}
+      {!loading && (
+        <div className="btn-container">
+          {articles.map((item, index) => {
+            return (
+              <button
+                className={`page-btn ${index === page ? "active-btn" : null}`}
+                onClick={() => handlePage(index)}
+                key={index}
+              >
+                {index + 1}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </Wrapper>
   );
 };

@@ -1,5 +1,10 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import styled from "styled-components";
+
+const FormWrapper = styled.form`
+  margin: 0 auto;
+`;
 
 const FormRegister = () => {
   const {
@@ -17,7 +22,7 @@ const FormRegister = () => {
   });
 
   return (
-    <form
+    <FormWrapper
       onSubmit={handleSubmit((data) => {
         console.log("the data:", data);
         axios
@@ -84,8 +89,10 @@ const FormRegister = () => {
       />
       <p>{errors.lastname?.message}</p>
 
-      <button type="submit">Register</button>
-    </form>
+      <button className="btn-form" type="submit">
+        Register
+      </button>
+    </FormWrapper>
   );
 };
 export default FormRegister;

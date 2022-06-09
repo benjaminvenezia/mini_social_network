@@ -1,7 +1,13 @@
 import Button from "@mui/material/Button";
 import GlobalStyle from "./utils/globalStyles";
 import { Footer, Navbar } from "./components";
-import { Homepage, LoginPage, RegisterPage, PostPage } from "./pages";
+import {
+  Homepage,
+  LoginPage,
+  RegisterPage,
+  PostPage,
+  ProfilPage,
+} from "./pages";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -16,6 +22,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/post" element={<PostPage />} />
+        <Route path="/profil" element={<ProfilPage />} />
       </Routes>
       <Footer />
     </Router>

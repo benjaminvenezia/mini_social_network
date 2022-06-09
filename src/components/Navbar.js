@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 // import logo from "./logo.svg";
 
 const Wrapper = styled.nav`
-  nav {
-    background: var(--clr-white);
-    box-shadow: var(--light-shadow);
-  }
   .nav-header {
     display: flex;
     align-items: center;
@@ -19,14 +15,12 @@ const Wrapper = styled.nav`
   }
   .nav-toggle {
     font-size: 1.5rem;
-    color: var(--clr-primary-5);
     background: transparent;
     border-color: transparent;
     transition: var(--transition);
     cursor: pointer;
   }
   .nav-toggle:hover {
-    color: var(--clr-primary-1);
     transform: rotate(90deg);
   }
   .logo {
@@ -79,12 +73,14 @@ const Wrapper = styled.nav`
       display: flex;
     }
     .links a {
+      color: white;
       padding: 0;
       margin: 0 0.5rem;
     }
     .links a:hover {
       padding: 0;
       background: transparent;
+      color: beige;
     }
     .social-icons {
       display: flex;

@@ -23,8 +23,8 @@ export const links = [
   },
   {
     id: 5,
-    url: "/profile",
-    text: "profile",
+    url: "/profil",
+    text: "profil",
   },
 ];
 
