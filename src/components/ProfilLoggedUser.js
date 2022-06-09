@@ -9,6 +9,14 @@ const Wrapper = styled.div`
   padding: 20px;
   margin: 3rem auto;
 
+  .edit-btn {
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: larger;
+    border: 1px solid white;
+  }
+
   span {
     font-size: 1.4rem;
   }
@@ -68,8 +76,12 @@ const ProfilLoggedUser = ({
         </p>
       </MyProfil>
       <UserActions>
-        <button onClick={() => deleteAccount(id)}>Delete My account</button>
-        <Link to="/edit">Edit</Link>
+        <button className="edit-btn" onClick={() => deleteAccount(id)}>
+          Delete My account
+        </button>
+        <Link className="edit-btn" to="/edit">
+          Edit
+        </Link>
       </UserActions>
     </Wrapper>
   );

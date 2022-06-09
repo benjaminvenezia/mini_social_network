@@ -3,10 +3,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 
 const FormWrapper = styled.form`
+  height: 80vh;
+
   margin: 0 auto;
+  label {
+    color: white;
+    margin-bottom: 20px;
+  }
 `;
 
 const FormEdit = ({ firstname, lastname }) => {
@@ -47,16 +52,19 @@ const FormEdit = ({ firstname, lastname }) => {
           });
       })}
     >
+      <label htmlFor="firstname">First Name</label>
       <input
         {...register("firstname", {
           required: "Ce champs est requis.",
           minLength: { value: 4, message: "4 caractères exigés." },
         })}
         type="text"
+        id="firstname"
         placeholder={firstname}
       />
       <p>{errors.firstname?.message}</p>
 
+      <label htmlFor="firstname">Last Name</label>
       <input
         {...register("lastname", {
           required: "Ce champs est requis.",

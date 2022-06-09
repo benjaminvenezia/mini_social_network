@@ -18,7 +18,6 @@ function App() {
     <Router>
       <GlobalStyle />
       <Navbar />
-
       <Routes>
         <Route index path="/" element={<Homepage />} />
         <Route index path="/landing" element={<LandingPage />} />

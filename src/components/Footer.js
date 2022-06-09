@@ -13,6 +13,10 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
+  border-top: 1px solid white;
+
+  text-align: center;
+  color: white;
   height: 5rem;
   display: flex;
   flex-direction: column;

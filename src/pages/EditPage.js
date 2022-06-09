@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import { FormEdit } from "../components";
 import axios from "axios";
+import styled from "styled-components";
+
+const Wrapper = styled.main`
+  text-align: center;
+  margin-top: 5%;
+
+  form {
+    margin-top: 5%;
+  }
+`;
 
 const EditPage = () => {
   const [myInformations, setMyInformations] = useState({});
@@ -33,10 +43,10 @@ const EditPage = () => {
   }, []);
 
   return (
-    <div>
+    <Wrapper>
       <h1>Edit</h1>
       <FormEdit {...myInformations} />
-    </div>
+    </Wrapper>
   );
 };
 export default EditPage;
