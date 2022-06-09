@@ -5,6 +5,7 @@ import FormLogin from "./FormLogin";
 import FormPost from "./FormPost";
 import Article from "./Article";
 import ProfilLoggedUser from "./ProfilLoggedUser";
+import FormEdit from "./FormEdit";
 
 export {
   Footer,
@@ -14,4 +15,5 @@ export {
   FormPost,
   Article,
   ProfilLoggedUser,
+  FormEdit,
 };

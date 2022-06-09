@@ -5,6 +5,7 @@ import PostPage from "./PostPage";
 import ProfilPage from "./ProfilPage";
 import LandingPage from "./LandingPage";
 import NotFound from "./NotFound";
+import EditPage from "./EditPage";
 
 export {
   Homepage,
@@ -14,4 +15,5 @@ export {
   ProfilPage,
   LandingPage,
   NotFound,
+  EditPage,
 };

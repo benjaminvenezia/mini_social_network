@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import moment from "moment";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   color: white;
@@ -69,6 +69,7 @@ const ProfilLoggedUser = ({
       </MyProfil>
       <UserActions>
         <button onClick={() => deleteAccount(id)}>Delete My account</button>
+        <Link to="/edit">Edit</Link>
       </UserActions>
     </Wrapper>
   );

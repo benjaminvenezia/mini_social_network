@@ -9,6 +9,7 @@ import {
   ProfilPage,
   LandingPage,
   NotFound,
+  EditPage,
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/profil" element={<ProfilPage />} />
+        <Route path="/edit" element={<EditPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

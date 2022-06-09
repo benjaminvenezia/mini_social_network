@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const FormWrapper = styled.form`
   margin: 0 auto;
 `;
 
-const FormPost = () => {
+const FormEdit = ({ firstname, lastname }) => {
   const navigate = useNavigate();
 
   const {
@@ -16,9 +18,8 @@ const FormPost = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      title: "",
-      content: "",
-      user: "",
+      firstname: "",
+      lastname: "",
     },
   });
 
@@ -28,8 +29,8 @@ const FormPost = () => {
         const token = localStorage.getItem("token");
 
         axios
-          .post(
-            "https://strapi-crea.jcloud-ver-jpc.ik-server.com/posts",
+          .put(
+            "https://strapi-crea.jcloud-ver-jpc.ik-server.com/users/26",
             data,
             {
               headers: {
@@ -39,7 +40,7 @@ const FormPost = () => {
             }
           )
           .then(function (response) {
-            navigate("/");
+            navigate("/profil");
           })
           .catch(function (error) {
             console.log(error.data);
@@ -47,35 +48,29 @@ const FormPost = () => {
       })}
     >
       <input
-        {...register("title", { required: "Ce champs est requis." })}
+        {...register("firstname", {
+          required: "Ce champs est requis.",
+          minLength: { value: 4, message: "4 caractères exigés." },
+        })}
         type="text"
-        placeholder="My wonderful article"
+        placeholder={firstname}
       />
-      <p>{errors.identifier?.message}</p>
+      <p>{errors.firstname?.message}</p>
 
       <input
-        {...register("content", {
+        {...register("lastname", {
           required: "Ce champs est requis.",
           minLength: { value: 4, message: "4 caractères exigés." },
         })}
         type="text"
-        placeholder="Content of your article"
+        placeholder={lastname}
       />
-      <p>{errors.password?.message}</p>
-      <input
-        {...register("user", {
-          required: "Ce champs est requis.",
-          minLength: { value: 4, message: "4 caractères exigés." },
-        })}
-        type="ext"
-        placeholder="John"
-      />
-      <p>{errors.password?.message}</p>
+      <p>{errors.lastname?.message}</p>
 
       <button className="btn-form" type="submit">
-        Poster
+        Edit
       </button>
     </FormWrapper>
   );
 };
-export default FormPost;
+export default FormEdit;

@@ -25,7 +25,6 @@ const Article = ({ id, title, content, user, created_at, udated_at }) => {
     <Wrapper>
       <h2>{title}</h2>
       <p>{content}</p>
-      {console.log("user :", user)}
       <div className="user-profil">
         <p>
           Posted by {user?.username} <span>{moment(created_at).fromNow()}</span>

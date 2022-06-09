@@ -31,7 +31,9 @@ const FormLogin = () => {
           )
           .then(function (response) {
             const { jwt } = response.data;
+            const id = response.data.user.id;
             localStorage.setItem("token", jwt);
+            localStorage.setItem("user_id", id);
             navigate("/");
           })
           .catch(function (error) {
