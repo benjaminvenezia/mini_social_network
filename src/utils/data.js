@@ -3,8 +3,8 @@ import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 export const links = [
   {
     id: 1,
-    url: "/",
-    text: "home",
+    url: "/homepage",
+    text: "Posts",
   },
   {
     id: 2,

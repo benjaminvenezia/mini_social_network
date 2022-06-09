@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const FormWrapper = styled.form`
+  height: 70vh;
   margin: 0 auto;
 `;
 
@@ -34,7 +35,7 @@ const FormLogin = () => {
             const id = response.data.user.id;
             localStorage.setItem("token", jwt);
             localStorage.setItem("user_id", id);
-            navigate("/");
+            navigate("/homepage");
           })
           .catch(function (error) {
             console.log(error.data);

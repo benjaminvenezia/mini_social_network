@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const FormWrapper = styled.form`
-  height: 80vh;
+  height: 70vh;
 
   margin: 0 auto;
   label {

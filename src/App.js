@@ -19,10 +19,9 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Routes>
-        <Route index path="/" element={<Homepage />} />
-        <Route index path="/landing" element={<LandingPage />} />
+        <Route index path="/" element={<LandingPage />} />
+        <Route index path="/homepage" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/profil" element={<ProfilPage />} />

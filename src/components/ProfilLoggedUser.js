@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   color: white;
+  height: 70vh;
   width: 50%;
   padding: 20px;
   margin: 3rem auto;
@@ -37,11 +38,12 @@ const ProfilLoggedUser = ({
   updated_at,
   bio,
 }) => {
-  const deleteAccount = (id) => {
+  const deleteAccount = () => {
     const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
     axios
       .delete(
-        `https://strapi-crea.jcloud-ver-jpc.ik-server.com/users/${id.toString()}`,
+        `https://strapi-crea.jcloud-ver-jpc.ik-server.com/users/${user_id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -76,7 +78,7 @@ const ProfilLoggedUser = ({
         </p>
       </MyProfil>
       <UserActions>
-        <button className="edit-btn" onClick={() => deleteAccount(id)}>
+        <button className="edit-btn" onClick={deleteAccount}>
           Delete My account
         </button>
         <Link className="edit-btn" to="/edit">

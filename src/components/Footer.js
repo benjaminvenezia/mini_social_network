@@ -14,7 +14,8 @@ const Footer = () => {
 
 const Wrapper = styled.footer`
   border-top: 1px solid white;
-
+  min-height: 100px;
+  max-height: 100px;
   text-align: center;
   color: white;
   height: 5rem;

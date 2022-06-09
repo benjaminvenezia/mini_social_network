@@ -127,7 +127,7 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.setItem("token", "");
-    navigate("/landing");
+    navigate("/");
   };
 
   return (
@@ -149,9 +149,12 @@ const Navbar = () => {
                 </li>
               );
             })}
-            <LogoutButton onClick={logout} type="button">
-              Log out
-            </LogoutButton>
+
+            {localStorage.getItem("token") && (
+              <LogoutButton onClick={logout} type="button">
+                Log out
+              </LogoutButton>
+            )}
           </ul>
         </div>
         <ul className="social-icons">
