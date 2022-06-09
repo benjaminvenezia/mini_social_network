@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
 
 const FormWrapper = styled.form`
@@ -7,6 +9,8 @@ const FormWrapper = styled.form`
 `;
 
 const FormRegister = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -33,6 +37,7 @@ const FormRegister = () => {
           .then(function (response) {
             const { jwt } = response.data;
             localStorage.setItem("token", jwt);
+            navigate("/");
           })
           .catch(function (error) {
             console.log(error.data);

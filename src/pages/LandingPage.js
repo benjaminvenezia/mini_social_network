@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.main`
   text-align: center;
+  margin-top: 5%;
 
   img {
     margin-top: 4rem;
